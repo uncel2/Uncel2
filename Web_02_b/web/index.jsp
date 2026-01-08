@@ -15,6 +15,9 @@
     <form action = "MainController" method = "get">
         a: <input type="text" name="txtA"/> <br/>
         b: <input type="text" name="txtB"/> <br/>
+        <select name = "txtOp">
+            
+        </select>
         <input type="submit" value="Submit"/>
     </form>
 </body>
