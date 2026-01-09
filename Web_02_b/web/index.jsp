@@ -16,7 +16,11 @@
         a: <input type="text" name="txtA"/> <br/>
         b: <input type="text" name="txtB"/> <br/>
         <select name = "txtOp">
-            
+            <option></option>
+             <option value="+">+</option>
+             <option value="-">-</option>
+             <option value="*">*</option>
+             <option value="/">/</option>
         </select>
         <input type="submit" value="Submit"/>
     </form>

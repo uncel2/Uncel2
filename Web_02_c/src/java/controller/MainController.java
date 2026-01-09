@@ -37,40 +37,13 @@ public class MainController extends HttpServlet {
             out.println("<title>Servlet MainController</title>");
             out.println("</head>");
             out.println("<body>");
-            boolean checkError = false;
-            String txtA = request.getParameter("txtA");
-            String txtB = request.getParameter("txtB");
-            String txtOp = request.getParameter("txtOp");
-            double a = Double.parseDouble(txtA);
-            double b = Double.parseDouble(txtB);
-            double result = 0;
-
-            try {
-
-                switch (txtOp) {
-                    case "+":
-                        result = a + b;
-                        break;
-                    case "-":
-                        result = a - b;
-                        break;
-                    case "*":
-                        result = a * b;
-                        break;
-                    case "/":
-                        result = a / b;
-                        break;
-                    default:
-                        result = 0;
-                }
-            } catch (Exception e) {
-                checkError = true;
-            }
-
-            if (!checkError) {
-                out.println(a + txtOp + b + "= <b>" + result + "</b>");
+            String txtUsername = request.getParameter("txtUsername");
+            String txtPassword = request.getParameter("txtPassword");
+            if (txtUsername.equalsIgnoreCase("admin")
+                    && txtPassword.equals("admin")) {
+                out.println("Dang nhap thanh cong!");
             } else {
-                out.println("Xay ra loi trong qua trinh xu ly!");
+                out.println("Dang nhap that bai! Sai username hoac password.");
             }
             out.println("</body>");
             out.println("</html>");

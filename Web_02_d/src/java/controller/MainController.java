@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,41 +38,21 @@ public class MainController extends HttpServlet {
             out.println("<title>Servlet MainController</title>");
             out.println("</head>");
             out.println("<body>");
-            boolean checkError = false;
-            String txtA = request.getParameter("txtA");
-            String txtB = request.getParameter("txtB");
-            String txtOp = request.getParameter("txtOp");
-            double a = Double.parseDouble(txtA);
-            double b = Double.parseDouble(txtB);
-            double result = 0;
-
-            try {
-
-                switch (txtOp) {
-                    case "+":
-                        result = a + b;
-                        break;
-                    case "-":
-                        result = a - b;
-                        break;
-                    case "*":
-                        result = a * b;
-                        break;
-                    case "/":
-                        result = a / b;
-                        break;
-                    default:
-                        result = 0;
-                }
-            } catch (Exception e) {
-                checkError = true;
+            String txtUsername = request.getParameter("txtUsername");
+            String txtPassword = request.getParameter("txtPassword");
+            
+            String url = "";
+            
+            if(txtUsername.equalsIgnoreCase("admin")
+               && txtPassword.equals("admin")){
+                url ="a.jsp";
+            }else{
+                url ="b.jsp";
             }
-
-            if (!checkError) {
-                out.println(a + txtOp + b + "= <b>" + result + "</b>");
-            } else {
-                out.println("Xay ra loi trong qua trinh xu ly!");
-            }
+            
+            // Chuyen trang
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
             out.println("</body>");
             out.println("</html>");
         }
