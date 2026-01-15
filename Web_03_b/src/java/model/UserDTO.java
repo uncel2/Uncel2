@@ -2,27 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package models;
+package model;
 
 /**
  *
- * @author Acer
+ * @author tungi
  */
 public class UserDTO {
 
     private String userID;
-    private String password;
     private String fullName;
+    private String password;
     private String roleID;
     private boolean status;
 
     public UserDTO() {
     }
 
-    public UserDTO(String userID, String password, String fullName, String roleID, boolean status) {
+    public UserDTO(String userID, String fullName, String password, String roleID, boolean status) {
         this.userID = userID;
-        this.password = password;
         this.fullName = fullName;
+        this.password = password;
         this.roleID = roleID;
         this.status = status;
     }
@@ -35,20 +35,20 @@ public class UserDTO {
         this.userID = userID;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getFullName() {
         return fullName;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRoleID() {
