@@ -32,9 +32,8 @@ public class UserDAO {
 
         try {
             cnt = DbUtils.getConnection();
-            String sql = "SELECT * FROM tblUsers" + "WHERE roleID = ? ";
-            // System.out.println(sql);
-            ptm.setString(1, username);
+            String sql = "SELECT * FROM tblUsers" + "WHERE roleID ='" + username + "'";
+            System.out.println(sql);
             st = cnt.createStatement();
             rs = st.executeQuery(sql);
 
