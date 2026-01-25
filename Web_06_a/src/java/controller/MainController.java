@@ -39,6 +39,8 @@ public class MainController extends HttpServlet {
             url = "LoginController";
         }else if(action.equals("logout")){
             url = "LogoutController";
+        }else if(action.equals("search")){
+            url = "SearchController";
         }
         
         // Chuyen trang
