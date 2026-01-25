@@ -1,6 +1,6 @@
 <%-- 
-    Document   : e403
-    Created on : Jan 25, 2026, 7:46:27 PM
+    Document   : a
+    Created on : Jan 19, 2026, 10:17:00 AM
     Author     : Acer
 --%>
 
@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <h1>403 - Access Denied! </h1>
+        <h1>Bang dieu khien</h1>
+        Tinh nang 1 <br/>
+        Tinh nang 2 <br/>
+        Tinh nang 3 <br/>
     </body>
 </html>

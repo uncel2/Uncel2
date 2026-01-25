@@ -1,6 +1,6 @@
 <%-- 
-    Document   : e403
-    Created on : Jan 25, 2026, 7:46:27 PM
+    Document   : index
+    Created on : Jan 19, 2026, 10:09:08 AM
     Author     : Acer
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <h1>403 - Access Denied! </h1>
+        <a href="login.jsp">Login</a>
     </body>
 </html>

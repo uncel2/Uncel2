@@ -14,21 +14,20 @@
     </head>
     <body>
         <%
-            UserDTO u = (UserDTO)session.getAttribute("user");
-            if (u!=null){       
+            UserDTO u = (UserDTO) session.getAttribute("user");
+            if (u != null) {
         %>
-                <h1>Welcome, <%=u.getFullName()%> </h1>
-                <a href="MainController?action=logout&">Logout</a>
-                <h2>Bang dieu khien</h2>
-                <a href="search.jsp">Seach</a>
-                Tinh nang 1 <br/>
-                Tinh nang 2 <br/>
-                Tinh nang 3 <br/>
+        <h1>Welcome, <%=u.getFullName()%> </h1>
+        <a href="MainController?action=logout&">Logout</a>
+        <h2>Bang dieu khien</h2>
+        Tinh nang 1 <br/>
+        Tinh nang 2 <br/>
+        Tinh nang 3 <br/>
         <%  } else {
                 response.sendRedirect("login.jsp");
             }
         %>
-        
-        
+
+
     </body>
 </html>

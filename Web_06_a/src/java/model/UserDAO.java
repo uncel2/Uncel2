@@ -17,6 +17,8 @@ import utils.DbUtils;
  */
 public class UserDAO {
 
+    public ArrayList<UserDTO> list = new ArrayList<>();
+
     public UserDAO() {
     }
 
@@ -55,5 +57,7 @@ public class UserDAO {
         }
         return null;
     }
+    
+    
 
 }

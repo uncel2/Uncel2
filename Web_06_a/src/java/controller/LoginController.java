@@ -33,9 +33,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        String url = "";
+         String url = "";
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null) {
             String txtUsername = request.getParameter("txtUsername");
@@ -45,10 +43,10 @@ public class LoginController extends HttpServlet {
             UserDTO user = udao.login(txtUsername, txtPassword);
             System.out.println(user);
             if (user != null) {
-                if (user.isStatus()) {
-                    url = "welcome.jsp";
+                if(user.isStatus()){
+                    url = "a.jsp";
                     session.setAttribute("user", user);
-                } else {
+                }else{
                     url = "e403.jsp";
                 }
             } else {
@@ -57,13 +55,12 @@ public class LoginController extends HttpServlet {
             }
 
         } else {
-            url = "welcome.jsp";
+            url = "a.jsp";
         }
         // Chuyen trang
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

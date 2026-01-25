@@ -1,6 +1,6 @@
 <%-- 
-    Document   : e403
-    Created on : Jan 25, 2026, 7:46:27 PM
+    Document   : b
+    Created on : Jan 19, 2026, 10:17:07 AM
     Author     : Acer
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <h1>403 - Access Denied! </h1>
+        <h1>Erorr !! vui long dang nhap lai</h1>
     </body>
 </html>
