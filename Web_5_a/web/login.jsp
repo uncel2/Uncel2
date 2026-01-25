@@ -14,7 +14,7 @@
     <body>
         <form action="MainController" method="post">
             <input type="hidden" name="action" value="login"/> 
-            UserName: <input type="text" name="textUsername"/> <br/>
+            UserName: <input type="text" name="textUsername" required="required"/> <br/>
             Password: <input type="password" name="textPassword"/> <br/>
             <input type="submit" value="Login"/>
         </form>
