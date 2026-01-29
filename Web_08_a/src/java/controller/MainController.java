@@ -6,17 +6,20 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.UserDAO;
+import model.UserDTO;
 
 /**
  *
  * @author tungi
  */
-public class LogoutController extends HttpServlet {
+public class MainController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,13 +34,30 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        if(session.getAttribute("user")!=null){
-            // huy bo toan bo noi dung session
-            session.invalidate();
+        String action = request.getParameter("action");
+        String url = "login";
+
+        switch (action) {
+            case "login":
+                url = "LoginController";
+                break;
+            case "logout":
+                url = "LogoutController";
+                break;
+            case "search":
+                url = "SearchController";
+                break;
+            case "deleteUniversity":
+                url = "DeleteUniversityController";
+                break;
+            default:
+                break;
         }
-        String url = "login.jsp";
-        response.sendRedirect(url);
+
+        // Chuyen trang
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

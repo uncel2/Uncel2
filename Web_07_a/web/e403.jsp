@@ -1,7 +1,7 @@
 <%-- 
-    Document   : b.jsp
-    Created on : 08-01-2026, 11:16:06
-    Author     : tungi
+    Document   : e403
+    Created on : Jan 25, 2026, 7:46:27 PM
+    Author     : Acer
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Dang nhap that bai! Sai username hoac password.</h1>
+       <h1>403 - Access Denied! </h1>
     </body>
 </html>
