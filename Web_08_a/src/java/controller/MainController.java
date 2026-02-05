@@ -34,24 +34,18 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
         String action = request.getParameter("action");
         String url = "login";
 
-        switch (action) {
-            case "login":
-                url = "LoginController";
-                break;
-            case "logout":
-                url = "LogoutController";
-                break;
-            case "search":
-                url = "SearchController";
-                break;
-            case "deleteUniversity":
-                url = "DeleteUniversityController";
-                break;
-            default:
-                break;
+        if (action.equals("login")) {
+            url = "LoginController";
+        } else if (action.equals("logout")) {
+            url = "LogoutController";
+        } else if (action.equals("search")) {
+            url = "SearchController";
+        } else if (action.equals("deleteUniversity")) {
+            url = "DeleteUniversityController";
         }
 
         // Chuyen trang

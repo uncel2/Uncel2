@@ -44,7 +44,9 @@ public class UniversityDAO {
                 UniversityDTO u = new UniversityDTO(id, name, shortName, description, foundedYear, address, city, region, type, totalStudents, totalFaculties, isDraft);
                 result.add(u);
             }
+            
         } catch (Exception e) {
+            
         }
         return result;
     }
@@ -53,7 +55,7 @@ public class UniversityDAO {
         ArrayList<UniversityDTO> result = new ArrayList<>();
         try {
             Connection conn = DbUtils.getConnection();
-            String sql = "SELECT * FROM tblUniversity WHERE status=1 AND " + column + " LIKE ?";
+            String sql = "SELECT * FROM tblUniversity WHERE status = 1 AND " + column + " LIKE ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + value + "%");
             System.out.println(ps.toString());
@@ -81,8 +83,12 @@ public class UniversityDAO {
         return result;
     }
 
-    public ArrayList<UniversityDTO> searchByID(String ID) {
-        return searchByColum("id", ID);
+    public UniversityDTO searchByID(String ID) {
+        ArrayList<UniversityDTO> a = searchByColum("id", ID);
+        if(a.size()>0){
+            return a.get(0);
+        }
+        return null;
     }
 
     public ArrayList<UniversityDTO> searchByName(String name) {
@@ -107,4 +113,29 @@ public class UniversityDAO {
         return result > 0;
     }
 
+    public boolean add(UniversityDTO u) {
+        int result = 0;
+        try {
+            Connection conn = DbUtils.getConnection();
+            String sql = "INSERT into tblUniversity values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, u.getId());
+            ps.setString(2, u.getName());
+            ps.setString(3, u.getShortName());
+            ps.setString(4, u.getDescription());
+            ps.setInt(5, u.getFoundedYear());
+            ps.setString(6, u.getAddress());
+            ps.setString(7, u.getCity());
+            ps.setString(8, u.getRegion());
+            ps.setString(9, u.getType());
+            ps.setInt(10, u.getTotalStudents());
+            ps.setInt(11, u.getTotalFaculties());
+            ps.setBoolean(12, u.isIsDraft());
+            ps.setBoolean(13, true);
+            result = ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return result > 0;
+    }
 }

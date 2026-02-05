@@ -19,7 +19,7 @@ import model.UserDTO;
  *
  * @author tungi
  */
-public class LoginController extends HttpServlet {
+public class MainController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,36 +32,36 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        String url = "";
-        HttpSession session = request.getSession();
-        if (session.getAttribute("user") == null) {
-            String txtUsername = request.getParameter("txtUsername");
-            String txtPassword = request.getParameter("txtPassword");
+        String action = request.getParameter("action");
+        String url = "login";
 
-            UserDAO udao = new UserDAO();
-            UserDTO user = udao.login(txtUsername, txtPassword);
-            System.out.println(user);
-            if (user != null) {
-                if (user.isStatus()) {
-                    url = "welcome.jsp";
-                    session.setAttribute("user", user);
-                } else {
-                    url = "e403.jsp";
-                }
-            } else {
-                url = "login.jsp";
-                request.setAttribute("message", "Invalid username or password!");
-            }
-
-        } else {
-            url = "welcome.jsp";
+        switch (action) {
+            case "login":
+                url = "LoginController";
+                break;
+            case "logout":
+                url = "LogoutController";
+                break;
+            case "search":
+                url = "SearchController";
+                break;
+            case "deleteUniversity":
+                url = "DeleteUniversityController";
+                break;
+            case "addUniversity":
+                url = "AddUniversityController";
+                break;
+                
+            default:
+                break;
         }
+
         // Chuyen trang
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
